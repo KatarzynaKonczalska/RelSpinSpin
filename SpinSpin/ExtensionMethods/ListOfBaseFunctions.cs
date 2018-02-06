@@ -18,7 +18,7 @@ namespace SpinSpin.ExtensionMethods
 
         //}
 
-        public static List<BaseFunction> SumAllFunctions(this List<BaseFunction> functions)
+        public static List<BaseFunction> SumAllFunctions(this List<BaseFunction> functions, int electronsNumber)
         {
             List<BaseFunction> result = new List<BaseFunction>();
             List<BaseFunction> visited = new List<BaseFunction>();
@@ -27,13 +27,13 @@ namespace SpinSpin.ExtensionMethods
             {
                 foreach (var tempFunction in functions)
                 {
-                    if (!visited.ContainFunction(tempFunction) && function.FunctionEquals(tempFunction)
-                        && function.SpinsAreEquals(tempFunction) && !ReferenceEquals(function, tempFunction))
+                    if (!visited.ContainFunction(tempFunction, electronsNumber) && function.FunctionEquals(tempFunction, electronsNumber)
+                        && function.SpinsAreEquals(tempFunction, electronsNumber) && !ReferenceEquals(function, tempFunction))
                     {
                         function.factor += tempFunction.factor;
                     }
                 }
-                if (!visited.ContainFunction(function))
+                if (!visited.ContainFunction(function, electronsNumber))
                 {
                     visited.Add(function);
                     result.Add(function);

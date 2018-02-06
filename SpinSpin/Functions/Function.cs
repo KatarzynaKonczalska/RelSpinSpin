@@ -21,11 +21,11 @@ namespace SpinSpin.Functions
             this.delta = delta;
         }
 
-        public bool FunctionsEquals(Function otherFunction)
+        public bool FunctionsEquals(Function otherFunction, int electronsNumber)
         {
             bool result = true;
             //bra 
-            for (int i = 0; i < GlobalParameters.N; i++)
+            for (int i = 0; i < electronsNumber; i++)
             {
                 if (otherFunction.braFunction[i] != braFunction[i]
                     || otherFunction.ketFunction[i] != ketFunction[i])

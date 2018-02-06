@@ -9,7 +9,7 @@ namespace SpinSpin.Utils
 {
     public static class PlaceChanger
     {
-        public static List<Function> ChangePlaces(List<Function> mixedFunctions)
+        public static List<Function> ChangePlaces(List<Function> mixedFunctions, int electronsNumber)
         {
             List<Function> result = new List<Function>();
 
@@ -21,7 +21,7 @@ namespace SpinSpin.Utils
                     continue;
                 }
                 int N = mixedFunction.braFunction.Length;
-                result.Add(ChangePlacesSingleFunction(mixedFunction));
+                result.Add(ChangePlacesSingleFunction(mixedFunction, electronsNumber));
             }
             return result;
         }
@@ -38,7 +38,7 @@ namespace SpinSpin.Utils
             return result;
         }
 
-        private static Function ChangePlacesSingleFunction(Function mixedFunction)
+        private static Function ChangePlacesSingleFunction(Function mixedFunction, int electronsNumber)
         {
             int[] newBra = (int[])mixedFunction.braFunction.Clone();
             int[] newKet = (int[])mixedFunction.ketFunction.Clone();
@@ -47,8 +47,8 @@ namespace SpinSpin.Utils
             {
                 int placeShouldBe = i - 1;
                 int valueInPlace = newBra[placeShouldBe];
-                newBra = Permutator.Permutate(newBra, new int[] { i, valueInPlace });
-                newKet = Permutator.Permutate(newKet, new int[] { i, valueInPlace });
+                newBra = Permutator.Permutate(newBra, new int[] { i, valueInPlace }, electronsNumber);
+                newKet = Permutator.Permutate(newKet, new int[] { i, valueInPlace }, electronsNumber);
             }
             int[] newDelta = new int[2];
             int deltaFirstValuePlace = Permutator.Find(mixedFunction.braFunction, mixedFunction.delta[0]);

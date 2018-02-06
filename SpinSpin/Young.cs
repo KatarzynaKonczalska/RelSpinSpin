@@ -11,7 +11,7 @@ namespace SpinSpin.Young
 {
     public static class Young
     {
-        public static List<BaseFunction> FunctionsCombine(List<BaseFunction> functions, List<BaseFunction> spinFunctions)
+        public static List<BaseFunction> FunctionsCombine(List<BaseFunction> functions, List<BaseFunction> spinFunctions, int electronsNumber)
         {
             List<BaseFunction> result = new List<BaseFunction>();
             foreach (var function in functions)
@@ -26,7 +26,7 @@ namespace SpinSpin.Young
                     });
                 }
             }
-            result = result.SumAllFunctions();
+            result = result.SumAllFunctions(electronsNumber);
             return result;
         }
 
@@ -59,13 +59,13 @@ namespace SpinSpin.Young
 
 
 
-        public static List<BaseFunction> FunctionOperate(BaseFunction function, List<int[]> symmetricalOperators, List<int[]> antysymmetricalOperators)
+        public static List<BaseFunction> FunctionOperate(BaseFunction function, List<int[]> symmetricalOperators, List<int[]> antysymmetricalOperators, int electronsNumber)
         {
             List<BaseFunction> result = new List<BaseFunction>();
 
             result = addBaseFunction(function, result);
-            result = symmetricalOperatorsOperate(function, symmetricalOperators, result);
-            result = antysymmetricalOperatorsOperate(function, antysymmetricalOperators, result);
+            result = symmetricalOperatorsOperate(function, symmetricalOperators, result, electronsNumber);
+            result = antysymmetricalOperatorsOperate(function, antysymmetricalOperators, result, electronsNumber);
 
             return result;
         }
@@ -80,7 +80,7 @@ namespace SpinSpin.Young
             return result;
         }
 
-        private static List<BaseFunction> antysymmetricalOperatorsOperate(BaseFunction function, List<int[]> antysymmetricalOperators, List<BaseFunction> result)
+        private static List<BaseFunction> antysymmetricalOperatorsOperate(BaseFunction function, List<int[]> antysymmetricalOperators, List<BaseFunction> result, int electronsNumber)
         {
             if (antysymmetricalOperators.Any())
             {
@@ -88,7 +88,7 @@ namespace SpinSpin.Young
                 {
                     result.Add(new BaseFunction
                     {
-                        function = Permutator.Permutate(function.function, operatorr),
+                        function = Permutator.Permutate(function.function, operatorr, electronsNumber),
                         factor = function.factor * (-1)
                     });
                 }
@@ -96,7 +96,7 @@ namespace SpinSpin.Young
             return result;
         }
 
-        private static List<BaseFunction> symmetricalOperatorsOperate(BaseFunction function, List<int[]> symmetricalOperators, List<BaseFunction> result)
+        private static List<BaseFunction> symmetricalOperatorsOperate(BaseFunction function, List<int[]> symmetricalOperators, List<BaseFunction> result, int electronsNumber)
         {
             if (symmetricalOperators.Any())
             {
@@ -104,7 +104,7 @@ namespace SpinSpin.Young
                 {
                     result.Add(new BaseFunction
                     {
-                        function = Permutator.Permutate(function.function, operatorr),
+                        function = Permutator.Permutate(function.function, operatorr, electronsNumber),
                         factor = function.factor * 1
                     });
                 }
@@ -112,7 +112,7 @@ namespace SpinSpin.Young
             return result;
         }
 
-        public static List<BaseFunction> SpinOperate(BaseFunction function, List<int[]> symmetricalSpinOperators, List<int[]> antysymmetricalSpinOperators)
+        public static List<BaseFunction> SpinOperate(BaseFunction function, List<int[]> symmetricalSpinOperators, List<int[]> antysymmetricalSpinOperators, int electronsNumber)
         {
             List<BaseFunction> result = new List<BaseFunction>();
             result.Add(new BaseFunction
@@ -126,7 +126,7 @@ namespace SpinSpin.Young
             {
                 result.Add(new BaseFunction
                 {
-                    spinFunction = Permutator.Permutate(function.spinFunction, operatorr),
+                    spinFunction = Permutator.Permutate(function.spinFunction, operatorr, electronsNumber),
                     factor = function.factor * 1
                 });
             }
@@ -136,7 +136,7 @@ namespace SpinSpin.Young
             {
                 result.Add(new BaseFunction
                 {
-                    spinFunction = Permutator.Permutate(function.spinFunction, operatorr),
+                    spinFunction = Permutator.Permutate(function.spinFunction, operatorr, electronsNumber),
                     factor = function.factor * (-1)
                 });
             }

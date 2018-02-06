@@ -8,10 +8,10 @@ namespace SpinSpin.Utils
 {
     public static class PermutationGenerator
     {
-        public static List<int[]> GeneratePairs()
+        public static List<int[]> GeneratePairs(int electronsNumber)
         {
             List<int[]> result = new List<int[]>(2);
-            switch (GlobalParameters.N)
+            switch (electronsNumber)
             {
                 case 2:
                     result.Add(new int[] { 1, 2 });

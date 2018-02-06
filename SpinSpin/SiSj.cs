@@ -10,20 +10,20 @@ namespace SpinSpin
 {
     public static class SiSj
     {
-        public static List<BaseFunction> Operate(List<BaseFunction> functions, int i, int j)
+        public static List<BaseFunction> Operate(List<BaseFunction> functions, int i, int j, int electronsNumber)
         {
             List<BaseFunction> result = new List<BaseFunction>();
             foreach (var function in functions)
             {
-                var example = function.Clone();
+                var example = function.Clone(electronsNumber);
                 var x = SPSM(example, i, j);
-                example = function.Clone();
+                example = function.Clone(electronsNumber);
                 var y = SMSP(example, i, j);
-                example = function.Clone();
+                example = function.Clone(electronsNumber);
                 var z = SZSZ(example, i, j);
-                if (x != null) result.Add(x.Clone());
-                if (y != null) result.Add(y.Clone());
-                if (z != null) result.Add(z.Clone());
+                if (x != null) result.Add(x.Clone(electronsNumber));
+                if (y != null) result.Add(y.Clone(electronsNumber));
+                if (z != null) result.Add(z.Clone(electronsNumber));
             }
 
             //List<BaseFunction> copy = new List<BaseFunction>();
@@ -35,21 +35,21 @@ namespace SpinSpin
 
             //var test = result.Where(x => ( Enumerable.SequenceEqual(x.spinFunction, new string[] {"alfa","beta","alfa" }) )).ToList();
 
-            return SumSameFunctions(result);
+            return SumSameFunctions(result, electronsNumber);
         }
 
-        private static List<BaseFunction> SumSameFunctions(List<BaseFunction> result)
+        private static List<BaseFunction> SumSameFunctions(List<BaseFunction> result, int electronsNumber)
         {
             //sumowanie
             List<BaseFunction> zredukowane = new List<BaseFunction>();
             foreach (var function in result)
             {
-                if (!zredukowane.ContainFunction(function))
+                if (!zredukowane.ContainFunction(function, electronsNumber))
                 {
                     zredukowane.Add(function);
                     foreach (var f in result)
                     {
-                        if (!ReferenceEquals(function, f) && f.FunctionEquals(function))
+                        if (!ReferenceEquals(function, f) && f.FunctionEquals(function, electronsNumber))
                         {
                             function.factor += f.factor;
                         }
@@ -79,11 +79,11 @@ namespace SpinSpin
             return null;
         }
 
-        public static bool ContainFunction(this List<BaseFunction> functions, BaseFunction function)
+        public static bool ContainFunction(this List<BaseFunction> functions, BaseFunction function, int electronsNumber)
         {
             foreach (var func in functions)
             {
-                if (func.FunctionEquals(function))
+                if (func.FunctionEquals(function, electronsNumber))
                 {
                     return true;
                 }

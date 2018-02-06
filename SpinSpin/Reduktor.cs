@@ -10,7 +10,7 @@ namespace SpinSpin
 {
     public static class Reduktor
     {
-        public static List<Function> Redukcja(List<BaseFunction> bra, List<BaseFunction> ket, int i, int j)
+        public static List<Function> Redukcja(List<BaseFunction> bra, List<BaseFunction> ket, int i, int j, int electronsNumber)
         {
             List<Function> result = new List<Function>();
             foreach (var braF in bra)
@@ -20,8 +20,8 @@ namespace SpinSpin
                     //if (ketF.SpinsAreEquals(braF))
                     if(Enumerable.SequenceEqual(ketF.spinFunction,braF.spinFunction))
                     {
-                        result.Add(new Function(ketF.factor * braF.factor, braF.CloneFunction(),
-                            ketF.CloneFunction(), new int[] { i, j }));
+                        result.Add(new Function(ketF.factor * braF.factor, braF.CloneFunction(electronsNumber),
+                            ketF.CloneFunction(electronsNumber), new int[] { i, j }));
                     }
                 }
             }
@@ -30,18 +30,18 @@ namespace SpinSpin
             return result;
         }
 
-        public static List<Function> ReductionWithDelta(List<Function> functions)
+        public static List<Function> ReductionWithDelta(List<Function> functions, int electronsNumber)
         {
             var result = new List<Function>();
 
             foreach (var function in functions)
             {
-                if (!result.ContainFunctionWithDelta(function))
+                if (!result.ContainFunctionWithDelta(function, electronsNumber))
                 {
                     result.Add(function);
                     foreach (var f in functions)
                     {
-                        if (!ReferenceEquals(f, function) && f.FunctionsEquals(function))
+                        if (!ReferenceEquals(f, function) && f.FunctionsEquals(function, electronsNumber))
                         {
                             function.factor += f.factor;
                         }
@@ -52,11 +52,11 @@ namespace SpinSpin
         }
 
 
-        public static bool ContainFunctionWithDelta(this List<Function> functions, Function function)
+        public static bool ContainFunctionWithDelta(this List<Function> functions, Function function, int electronsNumber)
         {
             foreach (var func in functions)
             {
-                if (func.FunctionsEquals(function) && Enumerable.SequenceEqual(func.delta, function.delta))
+                if (func.FunctionsEquals(function, electronsNumber) && Enumerable.SequenceEqual(func.delta, function.delta))
                 {
                     return true;
                 }

@@ -49,7 +49,6 @@
     <Compile Include="FunctionSymmetry.cs" />
     <Compile Include="Functions\BaseFunction.cs" />
     <Compile Include="Functions\Function.cs" />
-    <Compile Include="GlobalParameters.cs" />
     <Compile Include="Operators\PermutationOperator.cs" />
     <Compile Include="Operators\UnitOperator.cs" />
     <Compile Include="Program.cs" />

@@ -25,12 +25,12 @@ namespace SpinSpin.Functions
             this.spinFunction = spinFunction;
         }
 
-        public BaseFunction Clone()
+        public BaseFunction Clone(int electronsNumber)
         {
             double copyFactor = this.factor;
-            int[] copyFunction = new int[GlobalParameters.N];
-            string[] copySpinFunction = new string[GlobalParameters.N];
-            for (int i = 0; i < GlobalParameters.N; i++)
+            int[] copyFunction = new int[electronsNumber];
+            string[] copySpinFunction = new string[electronsNumber];
+            for (int i = 0; i < electronsNumber; i++)
             {
                 copyFunction[i] = function[i];
                 copySpinFunction[i] = spinFunction[i];
@@ -39,20 +39,20 @@ namespace SpinSpin.Functions
             return baseFunction;
         }
 
-        public int[] CloneFunction()
+        public int[] CloneFunction(int electronsNumber)
         {
-            int[] result = new int[GlobalParameters.N];
-            for (int i = 0; i < GlobalParameters.N; i++)
+            int[] result = new int[electronsNumber];
+            for (int i = 0; i < electronsNumber; i++)
             {
                 result[i] = function[i];
             }
             return result;
         }
 
-        public bool SpinsAreEquals(BaseFunction otherFunction)
+        public bool SpinsAreEquals(BaseFunction otherFunction, int electronsNumber)
         {
             bool result = true;
-            for (int i = 0; i < GlobalParameters.N; i++)
+            for (int i = 0; i < electronsNumber; i++)
             {
                 if (!otherFunction.spinFunction[i].Equals(spinFunction[i]))
                 {
@@ -62,10 +62,10 @@ namespace SpinSpin.Functions
             return result;
         }
 
-        public bool FunctionEquals(BaseFunction otherFunction)
+        public bool FunctionEquals(BaseFunction otherFunction, int electronsNumber)
         {
             bool result = true;
-            for (int i=0; i <GlobalParameters.N; i++)
+            for (int i=0; i < electronsNumber; i++)
             {
                 if (otherFunction.function[i] != function[i]
                     || otherFunction.spinFunction[i] != spinFunction[i])

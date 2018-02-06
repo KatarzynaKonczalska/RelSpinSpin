@@ -98,7 +98,7 @@ namespace SpinSpin.Interface
         {
             var funkcjaPrzestrzenna = operatorsFromButtonsController.GetFunction();
             var funkcjaSpinowa = operatorsFromButtonsController.GetSpinFunction();
-
+            int electronNumber = funkcjaPrzestrzenna.Count;
 
             var operatorySymetryczne = operatorsController.GetSymmetricOperators();
             var operatoryAntysymetryczne = operatorsController.GetAntysymmetricOperators();
@@ -107,7 +107,8 @@ namespace SpinSpin.Interface
 
             var norm = Math.Sqrt(operatorsController.GetNorm()) * factorialRecursion(funkcjaPrzestrzenna.Count);
             Action form = new Action(funkcjaPrzestrzenna.ToArray(), funkcjaSpinowa.ToArray(),
-                operatorySymetryczne, operatoryAntysymetryczne, operatorySymetryczneSpinu, operatoryAntysymetryczneSpinu, norm);
+                operatorySymetryczne, operatoryAntysymetryczne, operatorySymetryczneSpinu, operatoryAntysymetryczneSpinu, norm,
+                electronNumber);
             form.Show();
         }
 

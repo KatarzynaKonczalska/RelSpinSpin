@@ -9,12 +9,12 @@ namespace SpinSpin.Utils
     public static class Permutator
     {
 
-        public static int[] Permutate(int[] baseFunction, int[] operatorr)
+        public static int[] Permutate(int[] baseFunction, int[] operatorr, int electronsNumber)
         {
             if (IsOdd(operatorr)) operatorr = TransformToEvenOperator(operatorr);
 
-            var function = new int[GlobalParameters.N];
-            for (int i = 0; i < GlobalParameters.N; i++)
+            var function = new int[electronsNumber];
+            for (int i = 0; i < electronsNumber; i++)
             {
                 function[i] = baseFunction[i];
             }
@@ -59,10 +59,10 @@ namespace SpinSpin.Utils
         //}
 
 
-        public static string[] Permutate(string[] baseFunction, int[] operatorr)
+        public static string[] Permutate(string[] baseFunction, int[] operatorr, int electronsNumber)
         {
-            var function = new string[GlobalParameters.N];
-            for (int i = 0; i < GlobalParameters.N; i++)
+            var function = new string[electronsNumber];
+            for (int i = 0; i < electronsNumber; i++)
             {
                 function[i] = baseFunction[i];
             }
