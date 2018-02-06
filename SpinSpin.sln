@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpinSpin", "SpinSpin\SpinSp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpinSpin.Interface", "SpinSpin.Interface\SpinSpin.Interface.csproj", "{E30D61F1-C464-47F3-BF64-EE263650DFCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{9E5DD3F0-1588-4133-B004-176C802935FC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{E30D61F1-C464-47F3-BF64-EE263650DFCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E30D61F1-C464-47F3-BF64-EE263650DFCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E30D61F1-C464-47F3-BF64-EE263650DFCE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9E5DD3F0-1588-4133-B004-176C802935FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E5DD3F0-1588-4133-B004-176C802935FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E5DD3F0-1588-4133-B004-176C802935FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E5DD3F0-1588-4133-B004-176C802935FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
