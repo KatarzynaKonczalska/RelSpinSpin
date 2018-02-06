@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RelSpinSpin
+namespace SpinSpin
 {
-    class Program
+    public enum FunctionSymmetry
     {
-        static void Main(string[] args)
-        {
-        }
+        symmetric,
+        antisymmetric
     }
 }

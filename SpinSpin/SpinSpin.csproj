@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{264BCFE1-E6C4-478E-B192-7EDB1F0C5BDC}</ProjectGuid>
+    <ProjectGuid>{F47776FC-513D-460D-801C-4A87C8ACA9F8}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RelSpinSpin</RootNamespace>
-    <AssemblyName>RelSpinSpin</AssemblyName>
+    <RootNamespace>SpinSpin</RootNamespace>
+    <AssemblyName>SpinSpin</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,11 +43,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Antysymetryzator.cs" />
+    <Compile Include="Operators\IPermutationOperator.cs" />
+    <Compile Include="ExtensionMethods\ListOfBaseFunctions.cs" />
+    <Compile Include="FunctionSymmetry.cs" />
+    <Compile Include="Functions\BaseFunction.cs" />
+    <Compile Include="Functions\Function.cs" />
+    <Compile Include="GlobalParameters.cs" />
+    <Compile Include="Operators\PermutationOperator.cs" />
+    <Compile Include="Operators\UnitOperator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reduktor.cs" />
+    <Compile Include="SiSj.cs" />
+    <Compile Include="Utils\PermutationGenerator.cs" />
+    <Compile Include="Utils\Permutator.cs" />
+    <Compile Include="Utils\PlaceChanger.cs" />
+    <Compile Include="Young.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Definitions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
