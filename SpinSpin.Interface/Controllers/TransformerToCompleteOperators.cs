@@ -205,7 +205,30 @@ namespace SpinSpin.Interface
                         result.Add(new PermutationOperator(new int[] { second, first, first, third }, FunctionSymmetry.symmetric));
                         break;
                     case 4:
-                        throw new NotImplementedException();
+                        int fourth = item[3];
+                        result.Add(new PermutationOperator(new int[] { third, fourth }, FunctionSymmetry.antisymmetric));
+                        result.Add(new PermutationOperator(new int[] { second, third }, FunctionSymmetry.antisymmetric));
+                        result.Add(new PermutationOperator(new int[] { second, third, third, fourth }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { second, fourth, fourth, third }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, second }, FunctionSymmetry.antisymmetric));
+                        result.Add(new PermutationOperator(new int[] { first, second, second, third, third, fourth }, FunctionSymmetry.antisymmetric));
+                        result.Add(new PermutationOperator(new int[] { first, third, third, second }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, fourth, fourth, third, third, second }, FunctionSymmetry.antisymmetric));
+                        result.Add(new PermutationOperator(new int[] { second, fourth }, FunctionSymmetry.antisymmetric));
+                        result.Add(new PermutationOperator(new int[] { first, second, third, fourth }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, second, second, fourth }, FunctionSymmetry.antisymmetric));
+                        result.Add(new PermutationOperator(new int[] { first, third, third, fourth, fourth, second }, FunctionSymmetry.antisymmetric));
+                        result.Add(new PermutationOperator(new int[] { first, fourth, fourth, second }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, second, second, third }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, third, second, fourth }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, second, second, fourth, fourth, third }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, third }, FunctionSymmetry.antisymmetric));
+                        result.Add(new PermutationOperator(new int[] { first, third, third, fourth }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, third, third, second, second, fourth }, FunctionSymmetry.antisymmetric));
+                        result.Add(new PermutationOperator(new int[] { first, fourth, fourth, third }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, third }, FunctionSymmetry.antisymmetric));
+                        result.Add(new PermutationOperator(new int[] { first, fourth, fourth, second, second, third }, FunctionSymmetry.antisymmetric));
+                        result.Add(new PermutationOperator(new int[] { first, fourth, second, third }, FunctionSymmetry.symmetric));
                         break;
                 }
             }
@@ -221,7 +244,30 @@ namespace SpinSpin.Interface
                         result.Add(new PermutationOperator(new int[] { second, first, first, third }, FunctionSymmetry.symmetric));
                         break;
                     case 4:
-                        throw new NotImplementedException();
+                        int fourth = item[3];
+                        result.Add(new PermutationOperator(new int[] { third, fourth }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { second, third }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { second, third, third, fourth }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { second, fourth, fourth, third }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, second }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, second, second, third, third, fourth }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, third, third, second }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, fourth, fourth, third, third, second }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { second, fourth }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, second, third, fourth }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, second, second, fourth }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, third, third, fourth, fourth, second }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, fourth, fourth, second }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, second, second, third }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, third, second, fourth }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, second, second, fourth, fourth, third }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, third }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, third, third, fourth }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, third, third, second, second, fourth }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, fourth, fourth, third }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, third }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, fourth, fourth, second, second, third }, FunctionSymmetry.symmetric));
+                        result.Add(new PermutationOperator(new int[] { first, fourth, second, third }, FunctionSymmetry.symmetric));
                         break;
                 }
             }
